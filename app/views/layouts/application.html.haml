@@ -9,6 +9,10 @@
     = stylesheet_link_tag 'application', 'data-turbo-track': 'reload'
     = javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true
 
-  %body
-    = button_to t('users.sign_out'), destroy_user_session_path, method: :delete
-    = yield
+  %body.text-bg-light
+    .container
+      %nav.navbar.navbar-expand-lg.shadow
+        .container-fluid
+          .navbar-brand= t('global.x_disk')
+          = button_to t('users.sign_out'), destroy_user_session_path, method: :delete, class: 'btn btn-secondary btn-sm'
+      = yield

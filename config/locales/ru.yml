@@ -3,3 +3,7 @@ ru:
     attributes:
       user:
         username: 'Логин'
+  global:
+    x_disk: 'X-Disk'
+  users:
+    sign_out: 'Выход'
