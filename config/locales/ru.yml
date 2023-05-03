@@ -3,7 +3,13 @@ ru:
     attributes:
       user:
         username: 'Логин'
+      record:
+        document: 'Файл'
+  controllers:
+    records:
+      created: 'Файл загружен'
   global:
     x_disk: 'X-Disk'
+    download: 'Загрузить'
   users:
     sign_out: 'Выход'

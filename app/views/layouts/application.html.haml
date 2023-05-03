@@ -11,8 +11,22 @@
 
   %body.text-bg-light
     .container
-      %nav.navbar.navbar-expand-lg.shadow
-        .container-fluid
-          .navbar-brand= t('global.x_disk')
-          = button_to t('users.sign_out'), destroy_user_session_path, method: :delete, class: 'btn btn-secondary btn-sm'
+      .card.border.border-0.shadow-sm.mt-2.mb-3
+        .card-body
+          .row.align-items-end
+            .col-auto
+              %h4.fw-bold.mb-0= t('global.x_disk')
+            .col-auto
+              %h5.text-secondary.mb-0= current_user.username
+            .col
+              .row.flex-row-reverse
+                .col-auto
+                  = button_to t('users.sign_out'), destroy_user_session_path, method: :delete, class: 'btn btn-secondary btn-sm'
+                .col-4
+                  = render 'records/form', record: @record
+      - if flash[:notice].present?
+        = render partial: 'partials/notice'
+      - if flash[:alert].present?
+        = render partial: 'partials/alert'
+      = render partial: 'partials/errors_form', locals: { model: @record }
       = yield

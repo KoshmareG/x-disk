@@ -1,0 +1,8 @@
+= form_with model: record do |form|
+  .row.gx-1
+    .col
+      = form.file_field :document, class: 'form-control form-control-sm'
+    .col-auto
+      = form.button  class: 'btn btn-warning btn-sm' do
+        %i.bi.bi-file-earmark-arrow-up
+        = t('global.download')
