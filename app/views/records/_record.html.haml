@@ -1,6 +1,9 @@
-.list-group-item.list-group-item-action{ id: "record_#{record.id}" }
-  .row
-    .col-auto
-      %i{ class: file_icon(record.type) }
-    .col.ps-0
-      = record.name
+.list-group.mb-1
+  .list-group-item.list-group-item-action.border.border-0{ id: "record_#{record.id}" }
+    .row
+      .col-auto
+        %i{ class: file_icon(record.type) }
+      .col.ps-0
+        = record.name
+      .col-auto
+        = link_to '', url_for(record.document.blob), title: t('records.download_file'), class: 'bi bi-cloud-download text-dark'
