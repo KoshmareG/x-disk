@@ -16,19 +16,21 @@
           .row.align-items-end
             .col-auto
               %h4.fw-bold.mb-0= t('global.x_disk')
-            .col-auto
-              %h5.text-secondary.mb-0= current_user.username
-            .col
-              .row.flex-row-reverse.align-items-end
-                .col-auto
-                  = button_to t('users.sign_out'), destroy_user_session_path, method: :delete, class: 'btn btn-secondary btn-sm'
-                .col-4
-                  = render 'records/form', record: @new_record
-                .col-auto#available_space
-                  = "#{t('records.available')} #{available_disk_space(current_user.used_disk_space)} #{t('records.mb')}"
+            -if user_signed_in?
+              .col-auto
+                %h5.text-secondary.mb-0= current_user.username
+              .col
+                .row.flex-row-reverse.align-items-end
+                  .col-auto
+                    = button_to t('users.sign_out'), destroy_user_session_path, method: :delete, class: 'btn btn-secondary btn-sm'
+                  .col-4
+                    = render 'records/form', record: @new_record
+                  .col-auto#available_space
+                    = "#{t('records.available')} #{available_disk_space(current_user.used_disk_space)} #{t('records.mb')}"
       - if flash[:notice].present?
         = render partial: 'partials/notice'
       - if flash[:alert].present?
         = render partial: 'partials/alert'
-      = render partial: 'partials/errors_form', locals: { model: @new_record }
+      -if user_signed_in?
+        = render partial: 'partials/errors_form', locals: { model: @new_record }
       = yield
