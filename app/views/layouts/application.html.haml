@@ -24,7 +24,7 @@
                   = button_to t('users.sign_out'), destroy_user_session_path, method: :delete, class: 'btn btn-secondary btn-sm'
                 .col-4
                   = render 'records/form', record: @new_record
-                .col-auto
+                .col-auto#available_space
                   = "#{t('records.available')} #{available_disk_space(current_user.used_disk_space)} #{t('records.mb')}"
       - if flash[:notice].present?
         = render partial: 'partials/notice'
