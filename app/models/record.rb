@@ -6,7 +6,7 @@ class Record < ApplicationRecord
   has_one_attached :document
 
   validates :document, attached: true, size: { less_than_or_equal_to: 4.megabytes }, content_type: [:docx, :xlsx, :zip]
-  validate :available_disk_space_for_file
+  validate :available_disk_space_for_file, if: -> { document.present? }
 
   def name
     document.blob.filename.to_s.gsub(/(\.\w*){1}\z/, '')
