@@ -23,7 +23,7 @@
                 .col-auto
                   = button_to t('users.sign_out'), destroy_user_session_path, method: :delete, class: 'btn btn-secondary btn-sm'
                 .col-4
-                  = render 'records/form', new_record: @new_record
+                  = render 'records/form', record: @new_record
       - if flash[:notice].present?
         = render partial: 'partials/notice'
       - if flash[:alert].present?
