@@ -5,6 +5,9 @@ ru:
         username: 'Логин'
       record:
         document: 'Файл'
+  errors:
+    records:
+      not_enough_disk_space: 'недостаточно пространства на диске'
   controllers:
     records:
       created: 'Файл загружен'
