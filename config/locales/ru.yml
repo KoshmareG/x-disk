@@ -13,3 +13,7 @@ ru:
     download: 'Загрузить'
   users:
     sign_out: 'Выход'
+  records:
+    files: 'Файлы'
+    no_records: 'Файлов нет'
+    to_add: 'Для добавления нажмите'

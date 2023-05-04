@@ -3,5 +3,6 @@ class AccountsController < ApplicationController
 
   def show
     @new_record = current_user.records.build
+    @records = current_user.records.except(@new_record)
   end
 end

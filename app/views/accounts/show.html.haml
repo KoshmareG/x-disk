@@ -1,0 +1,7 @@
+.card.border.border-0.shadow-sm
+  .card-body
+    %h4= t('records.files')
+    .list-group
+      = render @records
+    - if @records.empty?
+      %p.fw-bold.text-center= "#{t('records.no_records')}. #{t('records.to_add')} \'#{t('global.download')}\'"
