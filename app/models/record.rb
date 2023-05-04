@@ -8,4 +8,8 @@ class Record < ApplicationRecord
   def name
     document.blob.filename.to_s.gsub(/(\.\w*){1}\z/, '')
   end
+
+  def type
+    document.blob.content_type
+  end
 end
