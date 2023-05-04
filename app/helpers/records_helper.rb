@@ -9,4 +9,8 @@ module RecordsHelper
       'bi bi-file-earmark-word'
     end
   end
+
+  def available_disk_space(space_used)
+    ((Record::DISK_SPACE_LIMIT - space_used.to_f) / 1_000_000).round(2)
+  end
 end

@@ -1,4 +1,6 @@
 class Record < ApplicationRecord
+  DISK_SPACE_LIMIT = 10_000_000
+
   belongs_to :user
 
   has_one_attached :document
