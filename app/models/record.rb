@@ -1,5 +1,6 @@
 class Record < ApplicationRecord
   DISK_SPACE_LIMIT = 10_000_000
+  FILES_EXTENSION_REGEXP = /(\.\w*){1}\z/
 
   belongs_to :user
 
@@ -9,7 +10,7 @@ class Record < ApplicationRecord
   validate :available_disk_space_for_file, if: -> { document.present? }
 
   def name
-    document.blob.filename.to_s.gsub(/(\.\w*){1}\z/, '')
+    document.blob.filename.to_s.gsub(FILES_EXTENSION_REGEXP, '')
   end
 
   def type
