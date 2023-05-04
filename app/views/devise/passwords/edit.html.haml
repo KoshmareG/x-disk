@@ -1,0 +1,19 @@
+.row.justify-content-md-center
+  .col-12.col-md-6
+    %h3= t('users.changing_password')
+    .card.border.border-0
+      .card-body
+        = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+          = render 'devise/shared/error_messages', resource: resource
+          = f.hidden_field :reset_password_token
+          = f.label :password, t('users.new_password'), class: 'form-label'
+          = f.password_field :password, autofocus: true, autocomplete: 'new-password', class: 'form-control mb-3'
+          = f.label :password_confirmation, t('users.confirm_new_password'), class: 'form-label'
+          = f.password_field :password_confirmation, autocomplete: 'new-password', class: 'form-control mb-3'
+          .d-grid.gap-2
+            = f.submit t('users.sign_in'), class: 'btn btn-primary mt-3'
+        .row.mt-3
+          .col-12.col-md-6.text-center
+            = link_to t('users.sign_in'), new_user_session_path, class: 'text-decoration-none'
+          .col-12.col-md-6.text-center
+            = link_to t('users.registration'), new_user_registration_path, class: 'text-decoration-none'

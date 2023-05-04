@@ -1,0 +1,16 @@
+.row.justify-content-md-center
+  .col-12.col-md-6
+    %h3= t('users.forgot_password')
+    .card.border.border-0
+      .card-body
+        = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+          = render 'devise/shared/error_messages', resource: resource
+          = f.label :email, class: 'form-label'
+          = f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control'
+          .d-grid.gap-2
+            = f.submit t('users.reset_password'), class: 'btn btn-primary mt-3'
+        .row.mt-3
+          .col-12.col-md-6.text-center
+            = link_to t('users.sign_in'), new_user_session_path, class: 'text-decoration-none'
+          .col-12.col-md-6.text-center
+            = link_to t('users.registration'), new_user_registration_path, class: 'text-decoration-none'

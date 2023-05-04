@@ -19,6 +19,11 @@ ru:
     sign_out: 'Выход'
     registration: 'Регистрация'
     forgot_password: 'Забыли пароль?'
+    reset_password: 'Сбрость пароль'
+    changing_password: 'Изменение пароля'
+    change_password: 'Изменить пароль'
+    new_password: 'Новый пароль'
+    confirm_new_password: 'Повторите новый пароль'
   records:
     files: 'Файлы'
     no_records: 'Файлов нет'
