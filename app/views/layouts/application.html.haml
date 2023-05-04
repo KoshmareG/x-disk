@@ -23,10 +23,10 @@
                 .col-auto
                   = button_to t('users.sign_out'), destroy_user_session_path, method: :delete, class: 'btn btn-secondary btn-sm'
                 .col-4
-                  = render 'records/form', record: @record
+                  = render 'records/form', new_record: @new_record
       - if flash[:notice].present?
         = render partial: 'partials/notice'
       - if flash[:alert].present?
         = render partial: 'partials/alert'
-      = render partial: 'partials/errors_form', locals: { model: @record }
+      = render partial: 'partials/errors_form', locals: { model: @new_record }
       = yield
