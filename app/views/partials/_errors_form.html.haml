@@ -6,6 +6,6 @@
         .row
           .col
             - model.errors.each do |error|
-              = error.full_message
+              %p.mb-0= error.full_message
           .col-auto
             %button.btn-close{ type: 'button', data: { 'bs-dismiss' => 'alert' } }
