@@ -1,8 +1,12 @@
 class RecordsController < ApplicationController
   before_action :authenticate_user!
 
+  after_action :verify_authorized
+
   def create
     @new_record = current_user.records.build(record_params)
+
+    authorize @new_record
 
     if @new_record.save
       redirect_to account_path(current_user), notice: I18n.t('controllers.records.created')
@@ -14,7 +18,11 @@ class RecordsController < ApplicationController
   end
 
   def destroy
-    @record = Record.find(params[:id]).destroy
+    @record = Record.find(params[:id])
+
+    authorize @record
+
+    @record.destroy
 
     redirect_to account_path(current_user), notice: I18n.t('controllers.records.deleted')
   end
