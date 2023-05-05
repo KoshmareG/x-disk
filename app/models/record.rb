@@ -23,7 +23,7 @@ class Record < ApplicationRecord
     user_used_space =
       Record.
         includes(document_attachment: :blob).
-        where(user_id: 2).
+        where(user_id: user.id).
         map { |record| record.document.blob.byte_size }.
         sum
 
