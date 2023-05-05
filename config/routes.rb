@@ -3,6 +3,6 @@ Rails.application.routes.draw do
 
   root 'accounts#show'
 
-  resources :accounts, except: :index
-  resources :records, except: :index
+  resources :accounts, only: :show
+  resources :records, only: %i[create destroy]
 end
