@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   has_many :records, dependent: :destroy
 
-  validates :username, presence: true, length: { maximum: 15 }
+  validates :username, presence: true, length: { maximum: 15 }, uniqueness: true
 
   def used_disk_space
     records.
