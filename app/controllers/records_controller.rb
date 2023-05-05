@@ -13,6 +13,12 @@ class RecordsController < ApplicationController
     end
   end
 
+  def destroy
+    @record = Record.find(params[:id]).destroy
+
+    redirect_to account_path(current_user), notice: I18n.t('controllers.records.deleted')
+  end
+
   private
 
   def record_params
