@@ -20,14 +20,7 @@ class Record < ApplicationRecord
   private
 
   def available_disk_space_for_file
-    user_used_space =
-      Record.
-        includes(document_attachment: :blob).
-        where(user_id: user.id).
-        map { |record| record.document.blob.byte_size }.
-        sum
-
-    if user_used_space + document.blob.byte_size > DISK_SPACE_LIMIT
+    if user.used_disk_space + document.blob.byte_size > DISK_SPACE_LIMIT
       errors.add(:document, I18n.t('errors.records.not_enough_disk_space'))
     end
   end
