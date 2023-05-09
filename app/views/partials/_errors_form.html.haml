@@ -2,10 +2,10 @@
   .row.justify-content-center
     .col.col-md-6
       .alert.alert-danger.px-2.py-1.border.border-0
-        %div#notice{ data: { 'turbo-cache' => 'false' }, :role => 'alert' }
+        %div#notice{ data: { 'turbo-cache': 'false' }, role: 'alert' }
         .row
           .col
             - model.errors.each do |error|
               %p.mb-0= error.full_message
           .col-auto
-            %button.btn-close{ type: 'button', data: { 'bs-dismiss' => 'alert' } }
+            %button.btn-close{ type: 'button', data: { 'bs-dismiss': 'alert' } }
