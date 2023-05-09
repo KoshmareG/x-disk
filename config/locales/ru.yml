@@ -32,5 +32,6 @@ ru:
     no_records: 'Файлов нет'
     to_add: 'Для добавления нажмите'
     download_file: 'Скачать файл'
+    delete_file: 'Удалить файл'
     available: 'Доступно'
     mb: 'Mb'
